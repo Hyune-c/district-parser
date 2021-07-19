@@ -12,7 +12,13 @@ import java.util.stream.Collectors;
 
 public class DongCodeParser {
 
-    private final String columnNames = "dong_code,sido_name,sigungu_name,eupmyeondong_name,ri_name";
+    private final String columnNames = String.join(",", List.of(
+        "dong_code",
+        "marketplace_district_type",
+        "sido_name",
+        "sigungu_name",
+        "eupmyeondong_name",
+        "ri_name"));
 
     public Integer parse(String inputFileName, String outputFileName) {
         try {

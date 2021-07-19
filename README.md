@@ -14,3 +14,6 @@
 
 3. 동일한 위치에 `존재하는 법정동` 만 파싱된  `parse_dongcode.csv` 가 생성되고 파싱된 row count 가 출력됩니다.
    ![img.png](src/resource/static/img2.png)
+
+4. DB 적재 예시 
+   ![img.png](src/resource/static/img3.png)

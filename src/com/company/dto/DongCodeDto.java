@@ -1,19 +1,21 @@
 package com.company.dto;
 
+import com.company.type.MarketplaceDistrictType;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DongCodeDto {
 
     private final String dongCode;
+    private final MarketplaceDistrictType marketplaceDistrictType;
     private final List<String> districtNames = new ArrayList<>();
     private final String live;
 
     public DongCodeDto(String dongCodeLine) {
         String[] splitTokens = dongCodeLine.split("\t");
-
         this.dongCode = splitTokens[0];
         updateDistrictNames(splitTokens[1]);
+        this.marketplaceDistrictType = MarketplaceDistrictType.findByDistrictNames(districtNames);
         this.live = splitTokens[2];
     }
 
@@ -54,6 +56,6 @@ public class DongCodeDto {
         while (districtNames.size() < 4) {
             districtNames.add("");
         }
-        return dongCode + "," + String.join(",", districtNames);
+        return String.format("%s,%s,%s", dongCode, marketplaceDistrictType.name(), String.join(",", districtNames));
     }
 }
